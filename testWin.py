@@ -2,6 +2,7 @@ from instr import *
 from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtWidgets import (QWidget, QApplication, QLabel, QPushButton, 
                              QLineEdit, QVBoxLayout, QHBoxLayout)
+from finalWin import FinalWin
 
 class TestWin(QWidget):
     def __init__(self):
@@ -95,9 +96,13 @@ class TestWin(QWidget):
         self.left_layout.addWidget(self.line_test4_1)
         self.left_layout.addSpacing(15)
 
+
         # Кнопка відправки
         self.btn_send = QPushButton(txt_sendresults)
         self.left_layout.addWidget(self.btn_send, alignment=Qt.AlignmentFlag.AlignCenter)
+
+        self.btn_next = QPushButton("Далі")
+        self.left_layout.addWidget(self.btn_next, alignment=Qt.AlignmentFlag.AlignCenter)
 
         # --- Права колонка (таймер) ---
         self.right_layout = QVBoxLayout()
@@ -121,7 +126,14 @@ class TestWin(QWidget):
         self.btn_test4.clicked.connect(self.start_test4)
         self.btn_test4_1.clicked.connect(self.start_test4_1)
         self.btn_send.clicked.connect(self.send_results)
+        self.btn_next.clicked.connect(self.next_click)
         self.timer.timeout.connect(self.timer_event)
+
+    def next_click(self):
+        data = self.send_data()
+        self.hide()
+        self.final_win = FinalWin(data)
+
 
     def start_test1(self):
         self.time_left = 15
@@ -172,12 +184,7 @@ class TestWin(QWidget):
         test2 = self.line_test2.text()
         test3 = self.line_test3.text()
         test4 = self.line_test4.text()
-        print(f"П.І.Б.: {name}")
-        print(f"Вік: {age}")
-        print(f"Перший тест: {test1}")
-        print(f"Фінальний тест (перші 15 сек): {test2}")
-        print(f"Фінальний тест (останні 15 сек): {test3}")
-        print(f"Четвертий тест: {test4}")
+        test4_1 = self.line_test4_1.text()
 
 app = QApplication([])
 win = TestWin()

@@ -1,4 +1,23 @@
-from testWin import txt_name, txt_age, txt_test1, txt_test2, txt_test3, txt_test4, txt_test4_1
-from PyQt6.QtCore import Qt, QTimer
-from PyQt6.QtWidgets import (QWidget, QApplication, QLabel, QPushButton, 
-                             QLineEdit, QVBoxLayout, QHBoxLayout)
+from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QPushButton
+from PyQt6.QtCore import Qt
+from instr import *
+
+class FinalWin(QWidget):
+    def __init__(self, data=None):
+        super().__init__()
+        self.data = data if data is not None else {}
+        self.set_appear()
+        self.initUI()
+        self.show()
+
+    def set_appear(self):
+        self.setWindowTitle("Результати тестування")
+        self.setWindowTitle(txt_title)
+        self.resize(win_width, win_height)
+        self.move(win_x, win_y)
+
+    def initUI(self):
+        layout = QVBoxLayout()
+        layout.setAlignment(Qt.AlignmentFlag.AlignTop)
+        layout.setSpacing(15)
+
