@@ -86,10 +86,12 @@ class TestWin(QWidget):
         self.line_test4 = QLineEdit(txt_hinttest4)
         self.label_test4_1 = QLabel(txt_test4_1)
         self.line_test4_1 = QLineEdit(txt_hinttest4_1)
+        self.btn_test4_1 = QPushButton(txt_start_test4_1)
         self.left_layout.addWidget(self.label_test4)
         self.left_layout.addWidget(self.btn_test4)
         self.left_layout.addWidget(self.line_test4)
         self.left_layout.addWidget(self.label_test4_1)
+        self.left_layout.addWidget(self.btn_test4_1)
         self.left_layout.addWidget(self.line_test4_1)
         self.left_layout.addSpacing(15)
 
@@ -117,6 +119,7 @@ class TestWin(QWidget):
         self.btn_test2.clicked.connect(self.start_test2)
         self.btn_test3.clicked.connect(self.start_test3)
         self.btn_test4.clicked.connect(self.start_test4)
+        self.btn_test4_1.clicked.connect(self.start_test4_1)
         self.btn_send.clicked.connect(self.send_results)
         self.timer.timeout.connect(self.timer_event)
 
@@ -143,6 +146,12 @@ class TestWin(QWidget):
         self.update_timer_label()
         self.timer.start(1000)
         self.btn_test4.setEnabled(False)
+
+    def start_test4_1(self):
+        self.time_left = 180  # 3 хвилини
+        self.update_timer_label()
+        self.timer.start(1000)
+        self.btn_test4_1.setEnabled(False)
 
     def timer_event(self):
         self.time_left -= 1
