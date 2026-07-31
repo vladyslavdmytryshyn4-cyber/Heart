@@ -16,6 +16,16 @@ class TestWin(QWidget):
         self.resize(win_width, win_height)
         self.move(win_x, win_y)
 
+    def send_data(self):
+        txt_name = self.line_name.text()
+        txt_age = self.line_age.text()
+        txt_test1 = self.line_test1.text()
+        txt_test2 = self.line_test2.text()
+        txt_test3 = self.line_test3.text()
+        txt_test4 = self.line_test4.text()
+        txt_test4_1 = self.line_test4_1.text()
+
+
     def initUI(self):
         # Таймер
         self.timer = QTimer()
@@ -129,7 +139,7 @@ class TestWin(QWidget):
         self.btn_test3.setEnabled(False)
 
     def start_test4(self):
-        self.time_left = 60
+        self.time_left = 20
         self.update_timer_label()
         self.timer.start(1000)
         self.btn_test4.setEnabled(False)
