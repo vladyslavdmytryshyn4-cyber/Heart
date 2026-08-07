@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QPushButton
+from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QPushButton, QApplication
 from PyQt6.QtCore import Qt
 from instr import *
 
@@ -21,3 +21,8 @@ class FinalWin(QWidget):
         layout.setAlignment(Qt.AlignmentFlag.AlignTop)
         layout.setSpacing(15)
 
+        self.label_name = QLabel("Індекс руфь'є: 0.0")
+        layout.addWidget(self.label_name)
+
+app = QApplication([])
+app.exec()
