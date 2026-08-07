@@ -28,11 +28,9 @@ class TestWin(QWidget):
 
 
     def initUI(self):
-        # Таймер
         self.timer = QTimer()
         self.time_left = 0
 
-        # --- Ліва колонка (форми) ---
         self.left_layout = QVBoxLayout()
         self.left_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
@@ -43,7 +41,6 @@ class TestWin(QWidget):
         self.left_layout.addWidget(self.line_name)
         self.left_layout.addSpacing(15)
 
-        # Вік
         self.label_age = QLabel(txt_age)
         self.line_age = QLineEdit(txt_hintage)
         self.left_layout.addWidget(self.label_age)
@@ -97,14 +94,12 @@ class TestWin(QWidget):
         self.left_layout.addSpacing(15)
 
 
-        # Кнопка відправки
         self.btn_send = QPushButton(txt_sendresults)
         self.left_layout.addWidget(self.btn_send, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self.btn_next = QPushButton("Далі")
         self.left_layout.addWidget(self.btn_next, alignment=Qt.AlignmentFlag.AlignCenter)
 
-        # --- Права колонка (таймер) ---
         self.right_layout = QVBoxLayout()
         self.right_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -112,7 +107,6 @@ class TestWin(QWidget):
         self.timer_label.setStyleSheet("font-size: 48px; font-weight: bold;")
         self.right_layout.addWidget(self.timer_label)
 
-        # --- Головний layout ---
         self.main_layout = QHBoxLayout()
         self.main_layout.addLayout(self.left_layout, stretch=3)
         self.main_layout.addLayout(self.right_layout, stretch=1)
