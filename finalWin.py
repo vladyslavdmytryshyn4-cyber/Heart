@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QPushButton, QApplication
 from PyQt6.QtCore import Qt
+=======
+from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QPushButton
+from PyQt5.QtCore import Qt
+>>>>>>> 96238404d2a7eb886056ce3b23861440f833b794
 from instr import *
 
 class FinalWin(QWidget):
