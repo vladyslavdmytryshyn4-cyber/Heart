@@ -25,3 +25,6 @@ txt_hinttest2 = "0"
 txt_hinttest3 = "0"
 txt_hinttest4 = "0"
 txt_hinttest4_1 = "0"
+
+txt_next = "Це програма для визначення стану здоров'я"
+txt_hello = "Ласкаво просимо до програми визначення стану здоров'я!"
