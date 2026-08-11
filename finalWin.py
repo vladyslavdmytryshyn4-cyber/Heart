@@ -3,8 +3,9 @@ from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtWidgets import (QWidget, QApplication, QLabel, QPushButton, QLineEdit, QVBoxLayout, QHBoxLayout)
 
 class FinalWin(QWidget):
-    def __init__(self, data=None):
+    def __init__(self, exp):
         super().__init__()
+        self.exp = exp
         self.set_appear()
         self.initUI()
         self.show()

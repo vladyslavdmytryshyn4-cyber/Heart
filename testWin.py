@@ -122,10 +122,24 @@ class TestWin(QWidget):
         self.btn_next.clicked.connect(self.next_click)
         self.timer.timeout.connect(self.timer_event)
 
+    def Experiment():
+        return {
+            "age": self.line_age.text(),
+            "test1": self.line_test1.text(),
+            "test2": self.line_test2.text(),
+            "test3": self.line_test3.text(),
+            "test4": self.line_test4.text(),
+            "test4_1": self.line_test4_1.text()
+        }
+
     def next_click(self):
         data = self.send_data()
         self.hide()
-        self.final_win = FinalWin(data)
+        self.exp = self.Experiment(self.line_age, self.line_test1, self.line_test2, self.line_test3, self.line_test4, self.line_test4_1)
+        self.tw = FinalWin(self.exp)
+
+    def result(self):
+        self.index = (4 * (int(self.exp.test1()) + int(self.exp.test2()) + int(self.exp.test3())) - 200) / 10
 
 
     def start_test1(self):
@@ -178,6 +192,15 @@ class TestWin(QWidget):
         test3 = self.line_test3.text()
         test4 = self.line_test4.text()
         test4_1 = self.line_test4_1.text()
+
+class Experiment:
+    def __init__(self, age, test1, test2, test3, test4, test4_1):
+        self.age = age
+        self.test1 = test1
+        self.test2 = test2
+        self.test3 = test3
+        self.test4 = test4
+        self.test4_1 = test4_1
 
 app = QApplication([])
 win = TestWin()
