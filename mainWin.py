@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QHBoxLayout, QVBoxLayout,
               QPushButton, QLabel, QLineEdit)
 
 from instr import *
-       
+from testWin import TestWin 
 class MainWin(QWidget):
     def __init__(self):
         super().__init__()
@@ -28,7 +28,7 @@ class MainWin(QWidget):
         self.btn_next.clicked.connect(self.next_click)
 
     def next_click(self):
-        pass
+        self.test_win = TestWin()
 
     ''' встановлює, як виглядатиме вікно (напис, розмір, місце) '''
     def set_appear(self):

@@ -179,6 +179,3 @@ class TestWin(QWidget):
         test4 = self.line_test4.text()
         test4_1 = self.line_test4_1.text()
 
-app = QApplication([])
-win = TestWin()
-app.exec()
