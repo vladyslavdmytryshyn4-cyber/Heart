@@ -193,15 +193,6 @@ class TestWin(QWidget):
         test4 = self.line_test4.text()
         test4_1 = self.line_test4_1.text()
 
-class Experiment:
-    def __init__(self, age, test1, test2, test3, test4, test4_1):
-        self.age = age
-        self.test1 = test1
-        self.test2 = test2
-        self.test3 = test3
-        self.test4 = test4
-        self.test4_1 = test4_1
-
 app = QApplication([])
 win = TestWin()
 app.exec()

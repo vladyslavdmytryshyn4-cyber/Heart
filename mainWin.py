@@ -3,10 +3,10 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QHBoxLayout, QVBoxLayout,
               QPushButton, QLabel, QLineEdit)
 
 from instr import *
-       
+from testWin import TestWin 
 class MainWin(QWidget):
-    def init(self):
-        super().init()
+    def __init__(self):
+        super().__init__()
         # створюємо та налаштовуємо графічні елементи:
         self.initUI()
         #Встановлює зв'язки між елементами
@@ -20,11 +20,15 @@ class MainWin(QWidget):
         self.btn_next = QPushButton(txt_next, self)
         self.hello_text = QLabel(txt_hello)
         self.layout_line = QVBoxLayout()
-        self.layout_line.addWidget(self.hello_text, alignment = Qt.AlignLeft)
+        self.layout_line.addWidget(self.hello_text, alignment = Qt.AlignCenter)
+        self.layout_line.addWidget(self.btn_next, alignment = Qt.AlignCenter)
         self.setLayout(self.layout_line)
 
     def connects(self):
         self.btn_next.clicked.connect(self.next_click)
+
+    def next_click(self):
+        self.test_win = TestWin()
 
     ''' встановлює, як виглядатиме вікно (напис, розмір, місце) '''
     def set_appear(self):

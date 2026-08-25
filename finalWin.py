@@ -33,7 +33,4 @@ class FinalWin(QWidget):
 
 
 
-app = QApplication([])
-win = FinalWin()
-app.exec()
 
