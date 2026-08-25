@@ -10,6 +10,7 @@ class TestWin(QWidget):
         self.initUI()
         self.connects()
         self.show()
+        self.result = 0
 
     def set_appear(self):
         self.setWindowTitle(txt_title)
@@ -17,13 +18,21 @@ class TestWin(QWidget):
         self.move(win_x, win_y)
 
     def send_data(self):
-        txt_name = self.line_name.text()
-        txt_age = self.line_age.text()
-        txt_test1 = self.line_test1.text()
-        txt_test2 = self.line_test2.text()
-        txt_test3 = self.line_test3.text()
-        txt_test4 = self.line_test4.text()
-        txt_test4_1 = self.line_test4_1.text()
+      
+        p1 = int(self.line_test1.text())
+        p2 = int(self.line_test2.text())
+        p3 = int(self.line_test3.text())
+        p4 = int(self.line_test4.text())
+        p4_1 = int(self.line_test4_1.text())
+
+        x1 = p4 - 5
+        x2 =  p4_1 + 5
+        if x1 >= p4_1 and p4_1  <=  x2:
+            self.result = "Задовільно"
+            
+        return (4 * (p1 + p2 + p3) - 200) / 10
+
+
 
 
     def initUI(self):
@@ -122,24 +131,10 @@ class TestWin(QWidget):
         self.btn_next.clicked.connect(self.next_click)
         self.timer.timeout.connect(self.timer_event)
 
-    def Experiment():
-        return {
-            "age": self.line_age.text(),
-            "test1": self.line_test1.text(),
-            "test2": self.line_test2.text(),
-            "test3": self.line_test3.text(),
-            "test4": self.line_test4.text(),
-            "test4_1": self.line_test4_1.text()
-        }
-
     def next_click(self):
         data = self.send_data()
         self.hide()
-        self.exp = self.Experiment(self.line_age, self.line_test1, self.line_test2, self.line_test3, self.line_test4, self.line_test4_1)
-        self.tw = FinalWin(self.exp)
-
-    def result(self):
-        self.index = (4 * (int(self.exp.test1()) + int(self.exp.test2()) + int(self.exp.test3())) - 200) / 10
+        self.final_win = FinalWin(data, self.line_name.text(), self.line_age.text(), self.result)
 
 
     def start_test1(self):
@@ -192,7 +187,3 @@ class TestWin(QWidget):
         test3 = self.line_test3.text()
         test4 = self.line_test4.text()
         test4_1 = self.line_test4_1.text()
-
-app = QApplication([])
-win = TestWin()
-app.exec()
