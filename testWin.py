@@ -29,6 +29,8 @@ class TestWin(QWidget):
         x2 =  p4_1 + 5
         if x1 >= p4_1 and p4_1  <=  x2:
             self.result = "Задовільно"
+        else:
+            self.result = "Незадовільно обратіться до лікаря!"
             
         return (4 * (p1 + p2 + p3) - 200) / 10
 

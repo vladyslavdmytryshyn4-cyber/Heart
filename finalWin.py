@@ -105,7 +105,7 @@ class FinalWin(QWidget):
         self.label_name.setStyleSheet("font-size: 20px; font-weight: bold;")
         self.left_layout.addWidget(self.label_name)
 
-        self.label_name = QLabel("Четвертий тест Мартіне Кушелевського" + str(self.result), alignment=Qt.AlignmentFlag.AlignCenter)
+        self.label_name = QLabel("Четвертий тест Мартіне Кушелевського: " + str(self.result), alignment=Qt.AlignmentFlag.AlignCenter)
         self.label_name.setStyleSheet("font-size: 20px; font-weight: bold;")
         self.left_layout.addWidget(self.label_name)
 
